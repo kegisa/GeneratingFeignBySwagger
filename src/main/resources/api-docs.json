@@ -1,0 +1,61 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8006",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/rates/{charCode}": {
+      "get": {
+        "tags": [
+          "rate-controller"
+        ],
+        "operationId": "getRateByCharCode",
+        "parameters": [
+          {
+            "name": "charCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrencyRate"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CurrencyRate": {
+        "type": "object",
+        "properties": {
+          "charCode": {
+            "type": "string"
+          },
+          "value": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      }
+    }
+  }
+}

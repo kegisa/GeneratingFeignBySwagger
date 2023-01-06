@@ -1,0 +1,2 @@
+logginglevel.com.victorlevin.client.swagger = DEBUG
+feign.client.config.default.loggerLevel = basic
